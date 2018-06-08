@@ -2232,7 +2232,13 @@ func setCellXfs(style *xlsxStyleSheet, fontID, numFmtID, fillID, borderID int, a
 		xf.ApplyNumberFormat = true
 	}
 	xf.FillID = fillID
+	if fillID != 0 {
+		xf.ApplyFill = true
+	}
 	xf.BorderID = borderID
+	if borderID != 0 {
+		xf.ApplyBorder = true
+	}
 	style.CellXfs.Count++
 	xf.Alignment = alignment
 	xf.ApplyAlignment = applyAlignment
